@@ -23,7 +23,7 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
     on<_CreateBarcode>((event, emit) async {
       emit(state.copyWith(isLoading: true, failure: null));
       final barcode = Barcode(code: event.code, scannedAt: event.scannedAt);
-      List<Barcode> newBarcodeList = List.from(state.barcodeList..add(barcode));
+      List<Barcode> newBarcodeList = List.from(state.barcodeList)..add(barcode);
       final failureOrSuccess = await _barcodeRepository.putBarcode(barcode);
       emit(failureOrSuccess.fold(
         (failure) => state.copyWith(isLoading: false, failure: failure),
@@ -31,7 +31,7 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
     });
     on<_DeleteBarcode>((event, emit) async {
       emit(state.copyWith(isLoading: true, failure: null));
-      List<Barcode> newBarcodeList = List.from(state.barcodeList..removeWhere((element) => element == event.barcode));
+      List<Barcode> newBarcodeList = List.from(state.barcodeList)..removeWhere((element) => element == event.barcode);
       final failureOrSuccess = await _barcodeRepository.deleteBarcode(event.barcode);
       emit(failureOrSuccess.fold(
         (failure) => state.copyWith(isLoading: false, failure: failure),

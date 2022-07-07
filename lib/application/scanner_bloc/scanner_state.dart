@@ -7,8 +7,8 @@ class ScannerState with _$ScannerState {
     required List<Barcode> barcodeList,
     BarcodeFailure? failure,
   }) = _ScannerState;
-  factory ScannerState.initial() => const ScannerState(
-    barcodeList: [],
+  factory ScannerState.initial() => ScannerState(
+    barcodeList: List.empty(growable: true),
     isLoading: false,
   );
 }
