@@ -1,5 +1,6 @@
 import 'package:barcode_scanner_app/infrastructure/scanner/barcode_dtos.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import '../../domain/scanner/barcode_failure.dart';
 import 'package:hive/hive.dart';
 
@@ -9,6 +10,7 @@ abstract class BarcodeLocalDataSource {
   Either<BarcodeFailure, Unit> putBarcode(BarcodeDto barcode);
 }
 
+@LazySingleton(as: BarcodeLocalDataSource)
 class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   final Box<BarcodeDto> box;
   BarcodeLocalDataSourceImpl({required this.box});

@@ -3,8 +3,10 @@ import 'package:dartz/dartz.dart';
 import 'package:barcode_scanner_app/domain/scanner/barcode.dart';
 import 'package:barcode_scanner_app/domain/scanner/barcode_failure.dart';
 import 'package:barcode_scanner_app/domain/scanner/i_barcode_repository.dart';
+import 'package:injectable/injectable.dart';
 import 'barcode_local_data_source.dart';
 
+@LazySingleton(as: IBarcodeRepository)
 class BarcodeRepository implements IBarcodeRepository {  
   final BarcodeLocalDataSource _barcodeLocalDataSource;
   BarcodeRepository(this._barcodeLocalDataSource);
