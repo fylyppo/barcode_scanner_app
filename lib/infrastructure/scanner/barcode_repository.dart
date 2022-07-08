@@ -1,37 +1,30 @@
+import 'package:barcode_scanner_app/infrastructure/scanner/barcode_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:barcode_scanner_app/domain/scanner/barcode.dart';
 import 'package:barcode_scanner_app/domain/scanner/barcode_failure.dart';
 import 'package:barcode_scanner_app/domain/scanner/i_barcode_repository.dart';
+import 'barcode_local_data_source.dart';
 
 class BarcodeRepository implements IBarcodeRepository {  
+  final BarcodeLocalDataSource _barcodeLocalDataSource;
+  BarcodeRepository(this._barcodeLocalDataSource);
+
   @override
-  Future<Either<BarcodeFailure, Unit>> putBarcode(Barcode barcode) async {
-    try {
-      //TODO Put Barcode to Hive Collection
-      return const Right(unit);
-    } catch (_) {
-      return const Left(BarcodeFailure.createFailure());
-    }
+  Either<BarcodeFailure, Unit> putBarcode(Barcode barcode) {
+      final failureOrSuccess = _barcodeLocalDataSource.putBarcode(BarcodeDto.fromDomain(barcode));
+      return failureOrSuccess.fold((failure) => Left(failure), (success) => const Right(unit));
   }
 
   @override
-  Future<Either<BarcodeFailure, Unit>> deleteBarcode(Barcode barcode) async {
-    try {
-      //TODO Remove Barcode from Hive Collection
-      return const Right(unit);
-    } catch (_) {
-      return const Left(BarcodeFailure.deleteFailure());
-    }
+  Either<BarcodeFailure, Unit> deleteBarcode(Barcode barcode) {
+      final failureOrSuccess = _barcodeLocalDataSource.deleteBarcode(BarcodeDto.fromDomain(barcode));
+      return failureOrSuccess.fold((failure) => Left(failure), (success) => const Right(unit));    
   }
 
   @override
-  Future<Either<BarcodeFailure, List<Barcode>>> getAllBarcodesFromLocalDB() async {
-    try {
-      //TODO Get Barcodes List from Hive Collection
-      return const Right([]);
-    } catch (_) {
-      return const Left(BarcodeFailure.loadFailure());
-    }
+  Either<BarcodeFailure, List<Barcode>> getAllBarcodes() {
+      final failureOrSuccess = _barcodeLocalDataSource.getAllBarcodes();
+      return failureOrSuccess.fold((failure) => Left(failure), (success) => Right(success.map((e) => e.toDomain()).toList()));
   }
 
 }
