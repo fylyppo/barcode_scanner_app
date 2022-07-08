@@ -14,7 +14,7 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
   ScannerBloc(this._barcodeRepository) : super(ScannerState.initial()) {
     on<_GetAllBarcodes>((event, emit) async {
       emit(state.copyWith(isLoading: true, failure: null));
-      final failureOrSuccess = await _barcodeRepository.getAllBarcodesFromLocalDB();
+      final failureOrSuccess = await _barcodeRepository.getAllBarcodes();
       emit(failureOrSuccess.fold(
           (failure) => state.copyWith(isLoading: false, failure: failure),
           (barcodeList) =>
