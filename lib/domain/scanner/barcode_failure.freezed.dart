@@ -18,63 +18,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BarcodeFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,38 +98,38 @@ class _$BarcodeFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_CacheFailureCopyWith<$Res> {
-  factory _$$_CacheFailureCopyWith(
-          _$_CacheFailure value, $Res Function(_$_CacheFailure) then) =
-      __$$_CacheFailureCopyWithImpl<$Res>;
+abstract class _$$_SaveFailureCopyWith<$Res> {
+  factory _$$_SaveFailureCopyWith(
+          _$_SaveFailure value, $Res Function(_$_SaveFailure) then) =
+      __$$_SaveFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CacheFailureCopyWithImpl<$Res>
+class __$$_SaveFailureCopyWithImpl<$Res>
     extends _$BarcodeFailureCopyWithImpl<$Res>
-    implements _$$_CacheFailureCopyWith<$Res> {
-  __$$_CacheFailureCopyWithImpl(
-      _$_CacheFailure _value, $Res Function(_$_CacheFailure) _then)
-      : super(_value, (v) => _then(v as _$_CacheFailure));
+    implements _$$_SaveFailureCopyWith<$Res> {
+  __$$_SaveFailureCopyWithImpl(
+      _$_SaveFailure _value, $Res Function(_$_SaveFailure) _then)
+      : super(_value, (v) => _then(v as _$_SaveFailure));
 
   @override
-  _$_CacheFailure get _value => super._value as _$_CacheFailure;
+  _$_SaveFailure get _value => super._value as _$_SaveFailure;
 }
 
 /// @nodoc
 
-class _$_CacheFailure implements _CacheFailure {
-  const _$_CacheFailure();
+class _$_SaveFailure implements _SaveFailure {
+  const _$_SaveFailure();
 
   @override
   String toString() {
-    return 'BarcodeFailure.cacheFailure()';
+    return 'BarcodeFailure.saveFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CacheFailure);
+        (other.runtimeType == runtimeType && other is _$_SaveFailure);
   }
 
   @override
@@ -138,42 +138,42 @@ class _$_CacheFailure implements _CacheFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
-    return cacheFailure();
+    return saveFailure();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
-    return cacheFailure?.call();
+    return saveFailure?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
-    if (cacheFailure != null) {
-      return cacheFailure();
+    if (saveFailure != null) {
+      return saveFailure();
     }
     return orElse();
   }
@@ -181,49 +181,49 @@ class _$_CacheFailure implements _CacheFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
-    return cacheFailure(this);
+    return saveFailure(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
-    return cacheFailure?.call(this);
+    return saveFailure?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
-    if (cacheFailure != null) {
-      return cacheFailure(this);
+    if (saveFailure != null) {
+      return saveFailure(this);
     }
     return orElse();
   }
 }
 
-abstract class _CacheFailure implements BarcodeFailure {
-  const factory _CacheFailure() = _$_CacheFailure;
+abstract class _SaveFailure implements BarcodeFailure {
+  const factory _SaveFailure() = _$_SaveFailure;
 }
 
 /// @nodoc
@@ -267,12 +267,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
     return unknownFailure();
   }
@@ -280,12 +280,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
     return unknownFailure?.call();
   }
@@ -293,12 +293,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
     if (unknownFailure != null) {
@@ -310,12 +310,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
     return unknownFailure(this);
   }
@@ -323,12 +323,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
     return unknownFailure?.call(this);
   }
@@ -336,12 +336,12 @@ class _$_UnknownFailure implements _UnknownFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
     if (unknownFailure != null) {
@@ -396,12 +396,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
     return cameraFailure();
   }
@@ -409,12 +409,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
     return cameraFailure?.call();
   }
@@ -422,12 +422,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
     if (cameraFailure != null) {
@@ -439,12 +439,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
     return cameraFailure(this);
   }
@@ -452,12 +452,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
     return cameraFailure?.call(this);
   }
@@ -465,12 +465,12 @@ class _$_CameraFailure implements _CameraFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
     if (cameraFailure != null) {
@@ -525,12 +525,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
     return loadFailure();
   }
@@ -538,12 +538,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
     return loadFailure?.call();
   }
@@ -551,12 +551,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -568,12 +568,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
     return loadFailure(this);
   }
@@ -581,12 +581,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
     return loadFailure?.call(this);
   }
@@ -594,12 +594,12 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -654,12 +654,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
     return deleteFailure();
   }
@@ -667,12 +667,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
     return deleteFailure?.call();
   }
@@ -680,12 +680,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
@@ -697,12 +697,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
     return deleteFailure(this);
   }
@@ -710,12 +710,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
     return deleteFailure?.call(this);
   }
@@ -723,12 +723,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
@@ -743,38 +743,38 @@ abstract class _DeleteFailure implements BarcodeFailure {
 }
 
 /// @nodoc
-abstract class _$$_CreateFailureCopyWith<$Res> {
-  factory _$$_CreateFailureCopyWith(
-          _$_CreateFailure value, $Res Function(_$_CreateFailure) then) =
-      __$$_CreateFailureCopyWithImpl<$Res>;
+abstract class _$$_PutFailureCopyWith<$Res> {
+  factory _$$_PutFailureCopyWith(
+          _$_PutFailure value, $Res Function(_$_PutFailure) then) =
+      __$$_PutFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CreateFailureCopyWithImpl<$Res>
+class __$$_PutFailureCopyWithImpl<$Res>
     extends _$BarcodeFailureCopyWithImpl<$Res>
-    implements _$$_CreateFailureCopyWith<$Res> {
-  __$$_CreateFailureCopyWithImpl(
-      _$_CreateFailure _value, $Res Function(_$_CreateFailure) _then)
-      : super(_value, (v) => _then(v as _$_CreateFailure));
+    implements _$$_PutFailureCopyWith<$Res> {
+  __$$_PutFailureCopyWithImpl(
+      _$_PutFailure _value, $Res Function(_$_PutFailure) _then)
+      : super(_value, (v) => _then(v as _$_PutFailure));
 
   @override
-  _$_CreateFailure get _value => super._value as _$_CreateFailure;
+  _$_PutFailure get _value => super._value as _$_PutFailure;
 }
 
 /// @nodoc
 
-class _$_CreateFailure implements _CreateFailure {
-  const _$_CreateFailure();
+class _$_PutFailure implements _PutFailure {
+  const _$_PutFailure();
 
   @override
   String toString() {
-    return 'BarcodeFailure.createFailure()';
+    return 'BarcodeFailure.putFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CreateFailure);
+        (other.runtimeType == runtimeType && other is _$_PutFailure);
   }
 
   @override
@@ -783,42 +783,42 @@ class _$_CreateFailure implements _CreateFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() cacheFailure,
+    required TResult Function() saveFailure,
     required TResult Function() unknownFailure,
     required TResult Function() cameraFailure,
     required TResult Function() loadFailure,
     required TResult Function() deleteFailure,
-    required TResult Function() createFailure,
+    required TResult Function() putFailure,
   }) {
-    return createFailure();
+    return putFailure();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
   }) {
-    return createFailure?.call();
+    return putFailure?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? cacheFailure,
+    TResult Function()? saveFailure,
     TResult Function()? unknownFailure,
     TResult Function()? cameraFailure,
     TResult Function()? loadFailure,
     TResult Function()? deleteFailure,
-    TResult Function()? createFailure,
+    TResult Function()? putFailure,
     required TResult orElse(),
   }) {
-    if (createFailure != null) {
-      return createFailure();
+    if (putFailure != null) {
+      return putFailure();
     }
     return orElse();
   }
@@ -826,47 +826,47 @@ class _$_CreateFailure implements _CreateFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CacheFailure value) cacheFailure,
+    required TResult Function(_SaveFailure value) saveFailure,
     required TResult Function(_UnknownFailure value) unknownFailure,
     required TResult Function(_CameraFailure value) cameraFailure,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_DeleteFailure value) deleteFailure,
-    required TResult Function(_CreateFailure value) createFailure,
+    required TResult Function(_PutFailure value) putFailure,
   }) {
-    return createFailure(this);
+    return putFailure(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
   }) {
-    return createFailure?.call(this);
+    return putFailure?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CacheFailure value)? cacheFailure,
+    TResult Function(_SaveFailure value)? saveFailure,
     TResult Function(_UnknownFailure value)? unknownFailure,
     TResult Function(_CameraFailure value)? cameraFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_DeleteFailure value)? deleteFailure,
-    TResult Function(_CreateFailure value)? createFailure,
+    TResult Function(_PutFailure value)? putFailure,
     required TResult orElse(),
   }) {
-    if (createFailure != null) {
-      return createFailure(this);
+    if (putFailure != null) {
+      return putFailure(this);
     }
     return orElse();
   }
 }
 
-abstract class _CreateFailure implements BarcodeFailure {
-  const factory _CreateFailure() = _$_CreateFailure;
+abstract class _PutFailure implements BarcodeFailure {
+  const factory _PutFailure() = _$_PutFailure;
 }
