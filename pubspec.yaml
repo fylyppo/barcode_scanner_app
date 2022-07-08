@@ -12,11 +12,16 @@ dependencies:
   flutter:
     sdk: flutter
 
+  analyzer: ^4.2.0
   cupertino_icons: ^1.0.2
   freezed_annotation: ^2.0.3
   dartz: ^0.10.1
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
+  hive: ^2.2.3
+  get_it: ^7.2.0
+  injectable: ^1.5.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -24,7 +29,12 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   build_runner: ^2.1.11
-  freezed: ^2.0.4
+  freezed: ^2.0.3+1
+  injectable_generator: ^1.5.3
+  hive_generator: ^1.1.3
+
+dependency_overrides:
+  analyzer: ^4.2.0
 
 flutter:
 
