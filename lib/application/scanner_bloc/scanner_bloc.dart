@@ -9,7 +9,7 @@ part 'scanner_event.dart';
 part 'scanner_state.dart';
 part 'scanner_bloc.freezed.dart';
 
-@injectable
+@LazySingleton()
 class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
   final IBarcodeRepository _barcodeRepository;
 

@@ -7,7 +7,7 @@ part 'barcode_dtos.g.dart';
 
 @freezed
 @HiveType(typeId: 0)
-abstract class BarcodeDto extends HiveObject with _$BarcodeDto {
+class BarcodeDto extends HiveObject with _$BarcodeDto {
   BarcodeDto._();
   factory BarcodeDto({
     @HiveField(0) required String code,

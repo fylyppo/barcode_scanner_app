@@ -28,7 +28,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i5.BarcodeLocalDataSourceImpl(box: get<_i3.Box<_i4.BarcodeDto>>()));
   gh.lazySingleton<_i6.IBarcodeRepository>(
       () => _i7.BarcodeRepository(get<_i5.BarcodeLocalDataSource>()));
-  gh.factory<_i8.ScannerBloc>(
+  gh.lazySingleton<_i8.ScannerBloc>(
       () => _i8.ScannerBloc(get<_i6.IBarcodeRepository>()));
   return get;
 }
