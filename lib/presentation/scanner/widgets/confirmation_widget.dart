@@ -7,68 +7,84 @@ import '../../routes/app_router.gr.dart';
 
 class ConfirmationWidget extends StatelessWidget implements AutoRouteWrapper {
   final String code;
-  const ConfirmationWidget({Key? key, required this.code})
-      : super(key: key);
+  const ConfirmationWidget({Key? key, required this.code}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: 200,
-        width: 300,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(15)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Text(
-              'Want to save this code?',
-              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              code,
-              style: const TextStyle(color: Colors.white),
-            ),
-            Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 120,
+            width: 280,
+            decoration: BoxDecoration(
+                color: Colors.orange, borderRadius: BorderRadius.circular(15)),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SizedBox(
-                  width: 120,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      getIt<AppRouter>().pop();
-                      getIt<ScannerBloc>().add(ScannerEvent.createBarcode(code: code, scannedAt: DateTime.now()));
-                    },
-                    style: ElevatedButton.styleFrom(primary: Colors.green),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.check, color: Colors.white,),
-                        Text('Yes', style: TextStyle(color: Colors.white),),
-                      ],
-                    ),
+                const Text(
+                  'Want to save this code?',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  code,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 280,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    getIt<AppRouter>().pop();
+                    getIt<ScannerBloc>().add(ScannerEvent.createBarcode(
+                        code: code, scannedAt: DateTime.now()));
+                  },
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(
+                        Icons.check,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'Yes',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  width: 160,
-                  child: ElevatedButton(
-                    onPressed: () => getIt<AppRouter>().popAndPush(
-                        const ScannerRoute()),
-                    style: ElevatedButton.styleFrom(primary: Colors.red),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.qr_code_scanner, color: Colors.white,),
-                        Text('No, scan again', style: TextStyle(color: Colors.white),),
-                      ],
-                    ),
+                ElevatedButton(
+                  onPressed: () =>
+                      getIt<AppRouter>().popAndPush(const ScannerRoute()),
+                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(
+                        Icons.qr_code_scanner,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'No, scan again',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

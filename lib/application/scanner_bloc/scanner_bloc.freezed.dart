@@ -493,7 +493,6 @@ abstract class _GetAllBarcodes implements ScannerEvent {
 
 /// @nodoc
 mixin _$ScannerState {
-  bool get isLoading => throw _privateConstructorUsedError;
   List<Barcode> get barcodeList => throw _privateConstructorUsedError;
   BarcodeFailure? get failure => throw _privateConstructorUsedError;
 
@@ -507,8 +506,7 @@ abstract class $ScannerStateCopyWith<$Res> {
   factory $ScannerStateCopyWith(
           ScannerState value, $Res Function(ScannerState) then) =
       _$ScannerStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading, List<Barcode> barcodeList, BarcodeFailure? failure});
+  $Res call({List<Barcode> barcodeList, BarcodeFailure? failure});
 
   $BarcodeFailureCopyWith<$Res>? get failure;
 }
@@ -523,15 +521,10 @@ class _$ScannerStateCopyWithImpl<$Res> implements $ScannerStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? isLoading = freezed,
     Object? barcodeList = freezed,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       barcodeList: barcodeList == freezed
           ? _value.barcodeList
           : barcodeList // ignore: cast_nullable_to_non_nullable
@@ -562,8 +555,7 @@ abstract class _$$_ScannerStateCopyWith<$Res>
           _$_ScannerState value, $Res Function(_$_ScannerState) then) =
       __$$_ScannerStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {bool isLoading, List<Barcode> barcodeList, BarcodeFailure? failure});
+  $Res call({List<Barcode> barcodeList, BarcodeFailure? failure});
 
   @override
   $BarcodeFailureCopyWith<$Res>? get failure;
@@ -582,15 +574,10 @@ class __$$_ScannerStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isLoading = freezed,
     Object? barcodeList = freezed,
     Object? failure = freezed,
   }) {
     return _then(_$_ScannerState(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       barcodeList: barcodeList == freezed
           ? _value._barcodeList
           : barcodeList // ignore: cast_nullable_to_non_nullable
@@ -607,13 +594,9 @@ class __$$_ScannerStateCopyWithImpl<$Res>
 
 class _$_ScannerState implements _ScannerState {
   const _$_ScannerState(
-      {required this.isLoading,
-      required final List<Barcode> barcodeList,
-      this.failure})
+      {required final List<Barcode> barcodeList, this.failure})
       : _barcodeList = barcodeList;
 
-  @override
-  final bool isLoading;
   final List<Barcode> _barcodeList;
   @override
   List<Barcode> get barcodeList {
@@ -626,7 +609,7 @@ class _$_ScannerState implements _ScannerState {
 
   @override
   String toString() {
-    return 'ScannerState(isLoading: $isLoading, barcodeList: $barcodeList, failure: $failure)';
+    return 'ScannerState(barcodeList: $barcodeList, failure: $failure)';
   }
 
   @override
@@ -634,7 +617,6 @@ class _$_ScannerState implements _ScannerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ScannerState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other._barcodeList, _barcodeList) &&
             const DeepCollectionEquality().equals(other.failure, failure));
@@ -643,7 +625,6 @@ class _$_ScannerState implements _ScannerState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(_barcodeList),
       const DeepCollectionEquality().hash(failure));
 
@@ -655,12 +636,9 @@ class _$_ScannerState implements _ScannerState {
 
 abstract class _ScannerState implements ScannerState {
   const factory _ScannerState(
-      {required final bool isLoading,
-      required final List<Barcode> barcodeList,
+      {required final List<Barcode> barcodeList,
       final BarcodeFailure? failure}) = _$_ScannerState;
 
-  @override
-  bool get isLoading;
   @override
   List<Barcode> get barcodeList;
   @override

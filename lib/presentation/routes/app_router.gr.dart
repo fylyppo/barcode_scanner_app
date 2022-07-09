@@ -23,10 +23,8 @@ class AppRouter extends _i3.RootStackRouter {
   @override
   final Map<String, _i3.PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
       return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i1.HomePage(key: args.key));
+          routeData: routeData, child: const _i1.HomePage());
     },
     ScannerRoute.name: (routeData) {
       return _i3.MaterialPageX<dynamic>(
@@ -43,22 +41,10 @@ class AppRouter extends _i3.RootStackRouter {
 
 /// generated route for
 /// [_i1.HomePage]
-class HomeRoute extends _i3.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({_i4.Key? key})
-      : super(HomeRoute.name, path: '/', args: HomeRouteArgs(key: key));
+class HomeRoute extends _i3.PageRouteInfo<void> {
+  const HomeRoute() : super(HomeRoute.name, path: '/');
 
   static const String name = 'HomeRoute';
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({this.key});
-
-  final _i4.Key? key;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for

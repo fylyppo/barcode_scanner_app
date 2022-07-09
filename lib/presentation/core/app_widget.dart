@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final appRouter = getIt<AppRouter>();
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Barcode Scanner',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.orange,

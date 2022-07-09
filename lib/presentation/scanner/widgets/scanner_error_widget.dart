@@ -37,14 +37,16 @@ class ScannerErrorWidget extends StatelessWidget {
               const Spacer(),
               SizedBox(
                 width: 200,
-                child: ElevatedButton(onPressed: () => getIt<AppRouter>().pop(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Icon(Icons.arrow_back),
-                    Text('Return to home page'),
-                  ],
-                ),),
+                child: ElevatedButton(
+                  onPressed: () => getIt<AppRouter>().pop(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(Icons.arrow_back),
+                      Text('Return to home page'),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

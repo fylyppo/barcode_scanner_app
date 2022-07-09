@@ -16,30 +16,28 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
   final Uuid uuid = const Uuid();
 
   ScannerBloc(this._barcodeRepository) : super(ScannerState.initial()) {
-    on<_GetAllBarcodes>((event, emit) async {
-      emit(state.copyWith(isLoading: true, failure: null));
+    on<_GetAllBarcodes>((event, emit) {
+      emit(state.copyWith(failure: null));
       final failureOrSuccess = _barcodeRepository.getAllBarcodes();
-      emit(failureOrSuccess.fold(
-          (failure) => state.copyWith(isLoading: false, failure: failure),
-          (barcodeList) =>
-              state.copyWith(isLoading: false, barcodeList: barcodeList)));
+      emit(failureOrSuccess.fold((failure) => state.copyWith(failure: failure),
+          (barcodeList) => state.copyWith(barcodeList: barcodeList)));
     });
-    on<_CreateBarcode>((event, emit) async {
-      emit(state.copyWith(isLoading: true, failure: null));
-      final barcode = Barcode(id: uuid.v1(), code: event.code, scannedAt: event.scannedAt);
+    on<_CreateBarcode>((event, emit) {
+      emit(state.copyWith(failure: null));
+      final barcode =
+          Barcode(id: uuid.v1(), code: event.code, scannedAt: event.scannedAt);
       List<Barcode> newBarcodeList = List.from(state.barcodeList)..add(barcode);
       final failureOrSuccess = _barcodeRepository.putBarcode(barcode);
-      emit(failureOrSuccess.fold(
-        (failure) => state.copyWith(isLoading: false, failure: failure),
-        (success) => state.copyWith(isLoading: false, barcodeList: newBarcodeList)));
+      emit(failureOrSuccess.fold((failure) => state.copyWith(failure: failure),
+          (success) => state.copyWith(barcodeList: newBarcodeList)));
     });
-    on<_DeleteBarcode>((event, emit) async {
-      emit(state.copyWith(isLoading: true, failure: null));
-      List<Barcode> newBarcodeList = List.from(state.barcodeList)..removeWhere((element) => element == event.barcode);
+    on<_DeleteBarcode>((event, emit) {
+      emit(state.copyWith(failure: null));
+      List<Barcode> newBarcodeList = List.from(state.barcodeList)
+        ..removeWhere((element) => element == event.barcode);
       final failureOrSuccess = _barcodeRepository.deleteBarcode(event.barcode);
-      emit(failureOrSuccess.fold(
-        (failure) => state.copyWith(isLoading: false, failure: failure),
-        (success) => state.copyWith(isLoading: false, barcodeList: newBarcodeList)));
+      emit(failureOrSuccess.fold((failure) => state.copyWith(failure: failure),
+          (success) => state.copyWith(barcodeList: newBarcodeList)));
     });
   }
 }

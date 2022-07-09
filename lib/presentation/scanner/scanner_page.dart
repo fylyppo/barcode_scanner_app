@@ -8,7 +8,6 @@ class ScannerPage extends StatefulWidget {
 
   @override
   State<ScannerPage> createState() => _ScannerPageState();
-
 }
 
 class _ScannerPageState extends State<ScannerPage> {
@@ -30,7 +29,7 @@ class _ScannerPageState extends State<ScannerPage> {
               code: barcode,
             )
           : QRBarScannerCamera(
-              notStartedBuilder: (context) => const CircularProgressIndicator(),
+              notStartedBuilder: (context) => const Center(child: CircularProgressIndicator()),
               onError: (context, error) =>
                   ScannerErrorWidget(error: error.toString()),
               qrCodeCallback: (code) {
