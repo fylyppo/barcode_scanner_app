@@ -23,15 +23,11 @@ class ConfirmationWidget extends StatelessWidget implements AutoRouteWrapper {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              'Want to save?',
-              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+              'Want to save this code?',
+              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
             ),
             Text(
               code,
-              style: const TextStyle(color: Colors.white),
-            ),
-            Text(
-              DateTime.now().toIso8601String(),
               style: const TextStyle(color: Colors.white),
             ),
             Row(
