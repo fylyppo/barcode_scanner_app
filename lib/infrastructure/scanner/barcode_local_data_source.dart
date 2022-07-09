@@ -28,8 +28,7 @@ class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   @override
   Either<BarcodeFailure, Unit> deleteBarcode(BarcodeDto barcode) {
     try {
-      //TODO Change to uuid
-      box.delete(barcode.scannedAt.millisecondsSinceEpoch.toString());
+      box.delete(barcode.id);
       return const Right(unit);
     } catch (_) {
       return const Left(BarcodeFailure.deleteFailure());
@@ -39,9 +38,8 @@ class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   @override
   Either<BarcodeFailure, Unit> putBarcode(BarcodeDto barcode) {
     try {
-      //TODO Change to uuid
       box.put(
-          barcode.scannedAt.millisecondsSinceEpoch.toString(), barcode);
+          barcode.id, barcode);
       return const Right(unit);
     } catch (_) {
       return const Left(BarcodeFailure.putFailure());

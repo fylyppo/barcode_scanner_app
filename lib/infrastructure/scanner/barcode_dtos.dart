@@ -10,15 +10,16 @@ part 'barcode_dtos.g.dart';
 class BarcodeDto extends HiveObject with _$BarcodeDto {
   BarcodeDto._();
   factory BarcodeDto({
-    @HiveField(0) required String code,
-    @HiveField(1) required DateTime scannedAt,
+    @HiveField(0) required String id,
+    @HiveField(1) required String code,
+    @HiveField(2) required DateTime scannedAt,
   }) = _BarcodeDto;
 
   factory BarcodeDto.fromDomain(Barcode barcode) {
-    return BarcodeDto(code: barcode.code, scannedAt: barcode.scannedAt);
+    return BarcodeDto(id: barcode.id, code: barcode.code, scannedAt: barcode.scannedAt);
   }
 
   Barcode toDomain() {
-    return Barcode(code: code, scannedAt: scannedAt);
+    return Barcode(id: id, code: code, scannedAt: scannedAt);
   }
 }

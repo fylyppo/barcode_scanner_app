@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Barcode {
+  String get id => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   DateTime get scannedAt => throw _privateConstructorUsedError;
 
@@ -27,7 +28,7 @@ mixin _$Barcode {
 abstract class $BarcodeCopyWith<$Res> {
   factory $BarcodeCopyWith(Barcode value, $Res Function(Barcode) then) =
       _$BarcodeCopyWithImpl<$Res>;
-  $Res call({String code, DateTime scannedAt});
+  $Res call({String id, String code, DateTime scannedAt});
 }
 
 /// @nodoc
@@ -40,10 +41,15 @@ class _$BarcodeCopyWithImpl<$Res> implements $BarcodeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? scannedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -62,7 +68,7 @@ abstract class _$$_BarcodeCopyWith<$Res> implements $BarcodeCopyWith<$Res> {
           _$_Barcode value, $Res Function(_$_Barcode) then) =
       __$$_BarcodeCopyWithImpl<$Res>;
   @override
-  $Res call({String code, DateTime scannedAt});
+  $Res call({String id, String code, DateTime scannedAt});
 }
 
 /// @nodoc
@@ -76,10 +82,15 @@ class __$$_BarcodeCopyWithImpl<$Res> extends _$BarcodeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? scannedAt = freezed,
   }) {
     return _then(_$_Barcode(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -95,8 +106,11 @@ class __$$_BarcodeCopyWithImpl<$Res> extends _$BarcodeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Barcode implements _Barcode {
-  const _$_Barcode({required this.code, required this.scannedAt});
+  const _$_Barcode(
+      {required this.id, required this.code, required this.scannedAt});
 
+  @override
+  final String id;
   @override
   final String code;
   @override
@@ -104,7 +118,7 @@ class _$_Barcode implements _Barcode {
 
   @override
   String toString() {
-    return 'Barcode(code: $code, scannedAt: $scannedAt)';
+    return 'Barcode(id: $id, code: $code, scannedAt: $scannedAt)';
   }
 
   @override
@@ -112,6 +126,7 @@ class _$_Barcode implements _Barcode {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Barcode &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.scannedAt, scannedAt));
   }
@@ -119,6 +134,7 @@ class _$_Barcode implements _Barcode {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(code),
       const DeepCollectionEquality().hash(scannedAt));
 
@@ -130,9 +146,12 @@ class _$_Barcode implements _Barcode {
 
 abstract class _Barcode implements Barcode {
   const factory _Barcode(
-      {required final String code,
+      {required final String id,
+      required final String code,
       required final DateTime scannedAt}) = _$_Barcode;
 
+  @override
+  String get id;
   @override
   String get code;
   @override

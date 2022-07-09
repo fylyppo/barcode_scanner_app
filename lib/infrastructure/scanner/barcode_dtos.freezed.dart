@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$BarcodeDto {
   @HiveField(0)
-  String get code => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @HiveField(1)
+  String get code => throw _privateConstructorUsedError;
+  @HiveField(2)
   DateTime get scannedAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +33,10 @@ abstract class $BarcodeDtoCopyWith<$Res> {
   factory $BarcodeDtoCopyWith(
           BarcodeDto value, $Res Function(BarcodeDto) then) =
       _$BarcodeDtoCopyWithImpl<$Res>;
-  $Res call({@HiveField(0) String code, @HiveField(1) DateTime scannedAt});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String code,
+      @HiveField(2) DateTime scannedAt});
 }
 
 /// @nodoc
@@ -44,10 +49,15 @@ class _$BarcodeDtoCopyWithImpl<$Res> implements $BarcodeDtoCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? scannedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -67,7 +77,10 @@ abstract class _$$_BarcodeDtoCopyWith<$Res>
           _$_BarcodeDto value, $Res Function(_$_BarcodeDto) then) =
       __$$_BarcodeDtoCopyWithImpl<$Res>;
   @override
-  $Res call({@HiveField(0) String code, @HiveField(1) DateTime scannedAt});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String code,
+      @HiveField(2) DateTime scannedAt});
 }
 
 /// @nodoc
@@ -82,10 +95,15 @@ class __$$_BarcodeDtoCopyWithImpl<$Res> extends _$BarcodeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? scannedAt = freezed,
   }) {
     return _then(_$_BarcodeDto(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -102,19 +120,24 @@ class __$$_BarcodeDtoCopyWithImpl<$Res> extends _$BarcodeDtoCopyWithImpl<$Res>
 
 class _$_BarcodeDto extends _BarcodeDto {
   _$_BarcodeDto(
-      {@HiveField(0) required this.code, @HiveField(1) required this.scannedAt})
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.code,
+      @HiveField(2) required this.scannedAt})
       : super._();
 
   @override
   @HiveField(0)
-  final String code;
+  final String id;
   @override
   @HiveField(1)
+  final String code;
+  @override
+  @HiveField(2)
   final DateTime scannedAt;
 
   @override
   String toString() {
-    return 'BarcodeDto(code: $code, scannedAt: $scannedAt)';
+    return 'BarcodeDto(id: $id, code: $code, scannedAt: $scannedAt)';
   }
 
   @override
@@ -122,6 +145,7 @@ class _$_BarcodeDto extends _BarcodeDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BarcodeDto &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.scannedAt, scannedAt));
   }
@@ -129,6 +153,7 @@ class _$_BarcodeDto extends _BarcodeDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(code),
       const DeepCollectionEquality().hash(scannedAt));
 
@@ -140,15 +165,19 @@ class _$_BarcodeDto extends _BarcodeDto {
 
 abstract class _BarcodeDto extends BarcodeDto {
   factory _BarcodeDto(
-      {@HiveField(0) required final String code,
-      @HiveField(1) required final DateTime scannedAt}) = _$_BarcodeDto;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String code,
+      @HiveField(2) required final DateTime scannedAt}) = _$_BarcodeDto;
   _BarcodeDto._() : super._();
 
   @override
   @HiveField(0)
-  String get code;
+  String get id;
   @override
   @HiveField(1)
+  String get code;
+  @override
+  @HiveField(2)
   DateTime get scannedAt;
   @override
   @JsonKey(ignore: true)
