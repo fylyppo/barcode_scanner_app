@@ -55,13 +55,13 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                     );
                   });
             }
-            return const Text('nie ma');
+            return const Text('nie ma', style: TextStyle(color: Colors.black),);
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () => getIt<AppRouter>().push(ScannerRoute())),
+          onPressed: () => getIt<AppRouter>().push(const ScannerRoute())),
     );
   }
 
