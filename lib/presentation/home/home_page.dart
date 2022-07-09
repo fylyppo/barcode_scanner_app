@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                             .add(ScannerEvent.deleteBarcode(list[index]));
                       },
                       child: Container(
-                        color: Colors.deepOrange,
+                        color: Colors.orange,
                         padding: const EdgeInsets.all(8.0),
                         margin: const EdgeInsets.all(8.0),
                         height: 70,
@@ -42,8 +42,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                           children: [
                             Text(list[index]
                                 .scannedAt
-                                .millisecondsSinceEpoch
-                                .toString()),
+                                .toIso8601String()),
                             IconButton(
                                 onPressed: () => context
                                     .read<ScannerBloc>()
@@ -62,7 +61,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
       ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () => getIt<AppRouter>().push(ScannerRoute(scannerBloc: scannerBloc))),
+          onPressed: () => getIt<AppRouter>().push(ScannerRoute())),
     );
   }
 
