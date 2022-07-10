@@ -8,7 +8,7 @@ class FAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-          onTap: () => getIt<AppRouter>().push(const ScannerRoute()),
+          onTap: () => getIt<AppRouter>().push(ScannerRoute()),
           child: Container(
             height: 60,
             width: 250,

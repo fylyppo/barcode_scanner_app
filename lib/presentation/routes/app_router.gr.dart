@@ -27,8 +27,10 @@ class AppRouter extends _i3.RootStackRouter {
           routeData: routeData, child: const _i1.HomePage());
     },
     ScannerRoute.name: (routeData) {
+      final args = routeData.argsAs<ScannerRouteArgs>(
+          orElse: () => const ScannerRouteArgs());
       return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.ScannerPage());
+          routeData: routeData, child: _i2.ScannerPage(key: args.key));
     }
   };
 
@@ -49,8 +51,21 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.ScannerPage]
-class ScannerRoute extends _i3.PageRouteInfo<void> {
-  const ScannerRoute() : super(ScannerRoute.name, path: '/scanner-page');
+class ScannerRoute extends _i3.PageRouteInfo<ScannerRouteArgs> {
+  ScannerRoute({_i4.Key? key})
+      : super(ScannerRoute.name,
+            path: '/scanner-page', args: ScannerRouteArgs(key: key));
 
   static const String name = 'ScannerRoute';
+}
+
+class ScannerRouteArgs {
+  const ScannerRouteArgs({this.key});
+
+  final _i4.Key? key;
+
+  @override
+  String toString() {
+    return 'ScannerRouteArgs{key: $key}';
+  }
 }
