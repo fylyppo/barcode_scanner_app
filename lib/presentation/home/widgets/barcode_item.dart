@@ -1,7 +1,7 @@
+import 'package:barcode_scanner_app/application/barcode_list/barcode_list_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import '../../../application/scanner_bloc/scanner_bloc.dart';
+import '../../../application/barcode_actor/barcode_actor_bloc.dart';
 import '../../../domain/scanner/barcode.dart';
 import '../../../injection.dart';
 
@@ -42,7 +42,8 @@ class BarcodeItem extends StatelessWidget {
       ),
       key: Key(barcode.id),
       onDismissed: (direction) {
-        context.read<ScannerBloc>().add(ScannerEvent.deleteBarcode(barcode));
+        getIt<BarcodeActorBloc>().add(BarcodeActorEvent.deletePressed(
+            barcode: barcode, barcodeListBloc: getIt<BarcodeListBloc>()));
       },
       child: Container(
         padding: const EdgeInsets.all(8.0),
@@ -52,7 +53,7 @@ class BarcodeItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             boxShadow: const [
               BoxShadow(
-                  color: Colors.grey, blurRadius: 10, offset: Offset(3, 3)),
+                  color: Colors.black26, blurRadius: 10, offset: Offset(3, 3)),
             ]),
         height: 70,
         child: Row(
@@ -76,8 +77,10 @@ class BarcodeItem extends StatelessWidget {
               ],
             ),
             IconButton(
-                onPressed: () => getIt<ScannerBloc>()
-                    .add(ScannerEvent.deleteBarcode(barcode)),
+                onPressed: () => getIt<BarcodeActorBloc>().add(
+                    BarcodeActorEvent.deletePressed(
+                        barcode: barcode,
+                        barcodeListBloc: getIt<BarcodeListBloc>())),
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.white,

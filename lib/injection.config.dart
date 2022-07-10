@@ -8,9 +8,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:hive/hive.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/scanner_bloc/scanner_bloc.dart' as _i8;
+import 'application/barcode_actor/barcode_actor_bloc.dart' as _i8;
+import 'application/barcode_list/barcode_list_bloc.dart' as _i9;
 import 'domain/scanner/i_barcode_repository.dart' as _i6;
-import 'infrastructure/core/hive_injectable_module.dart' as _i9;
+import 'infrastructure/core/hive_injectable_module.dart' as _i10;
 import 'infrastructure/scanner/barcode_dtos.dart' as _i4;
 import 'infrastructure/scanner/barcode_local_data_source.dart' as _i5;
 import 'infrastructure/scanner/barcode_repository.dart'
@@ -28,9 +29,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i5.BarcodeLocalDataSourceImpl(box: get<_i3.Box<_i4.BarcodeDto>>()));
   gh.lazySingleton<_i6.IBarcodeRepository>(
       () => _i7.BarcodeRepository(get<_i5.BarcodeLocalDataSource>()));
-  gh.lazySingleton<_i8.ScannerBloc>(
-      () => _i8.ScannerBloc(get<_i6.IBarcodeRepository>()));
+  gh.factory<_i8.BarcodeActorBloc>(
+      () => _i8.BarcodeActorBloc(get<_i6.IBarcodeRepository>()));
+  gh.lazySingleton<_i9.BarcodeListBloc>(
+      () => _i9.BarcodeListBloc(get<_i6.IBarcodeRepository>()));
   return get;
 }
 
-class _$HiveInjectableModule extends _i9.HiveInjectableModule {}
+class _$HiveInjectableModule extends _i10.HiveInjectableModule {}

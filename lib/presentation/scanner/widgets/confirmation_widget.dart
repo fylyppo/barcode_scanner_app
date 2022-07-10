@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../application/scanner_bloc/scanner_bloc.dart';
+import '../../../application/barcode_actor/barcode_actor_bloc.dart';
+import '../../../application/barcode_list/barcode_list_bloc.dart';
 import '../../../injection.dart';
 import '../../routes/app_router.gr.dart';
 
@@ -45,8 +46,8 @@ class ConfirmationWidget extends StatelessWidget implements AutoRouteWrapper {
                 ElevatedButton(
                   onPressed: () {
                     getIt<AppRouter>().pop();
-                    getIt<ScannerBloc>().add(ScannerEvent.createBarcode(
-                        code: code, scannedAt: DateTime.now()));
+                    getIt<BarcodeActorBloc>().add(BarcodeActorEvent.savePressed(
+                        code: code, barcodeListBloc: getIt<BarcodeListBloc>()));
                   },
                   style: ElevatedButton.styleFrom(primary: Colors.green),
                   child: Row(
@@ -92,7 +93,7 @@ class ConfirmationWidget extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider.value(
-      value: getIt<ScannerBloc>(),
+      value: getIt<BarcodeActorBloc>(),
       child: this,
     );
   }

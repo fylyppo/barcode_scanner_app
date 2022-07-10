@@ -5,7 +5,8 @@ import 'package:barcode_scanner_app/presentation/home/widgets/barcode_item.dart'
 import 'package:barcode_scanner_app/presentation/home/widgets/fab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../application/scanner_bloc/scanner_bloc.dart';
+
+import '../../application/barcode_list/barcode_list_bloc.dart';
 
 class HomePage extends StatelessWidget implements AutoRouteWrapper {
   const HomePage({Key? key}) : super(key: key);
@@ -17,32 +18,36 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
           title: const Text('Barcode Scanner'),
         ),
         body: Center(
-          child: BlocConsumer<ScannerBloc, ScannerState>(
+          child: BlocConsumer<BarcodeListBloc, BarcodeListState>(
             listener: (context, state) {
-              if (state.failure != null) {
-                FlushbarHelper.createError(
-                    message: state.failure!.map(
-                        loadFailure: (_) => 'Cannot load barcodes',
-                        deleteFailure: (_) => 'Cannot delete',
-                        putFailure: (_) => 'Cannot save')).show(context);
-              }
+              state.mapOrNull(
+                  loadFailure: (_) => FlushbarHelper.createError(
+                          message: 'Cannot load barcodes :(')
+                      .show(context));
             },
             builder: (context, state) {
-              final list = state.barcodeList;
-              if (list.isNotEmpty) {
-                return ListView.builder(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    itemCount: list.length,
-                    itemBuilder: (context, index) {
-                      final barcode = list[index];
-                      return BarcodeItem(barcode);
-                    });
-              }
-              return const Text(
-                'There is no barcodes',
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              );
+              return state.map(
+                  initial: (_) => Container(),
+                  loadInProgress: (_) => const CircularProgressIndicator(),
+                  loadSuccess: (successState) {
+                    final barcodes = successState.barcodes;
+                    if (barcodes.isNotEmpty) {
+                      return ListView.builder(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          itemCount: barcodes.length,
+                          itemBuilder: (context, index) {
+                            final barcode = barcodes[index];
+                            return BarcodeItem(barcode);
+                          });
+                    }
+                    return const Text(
+                      'There is no barcodes',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    );
+                  },
+                  loadFailure: (_) => const Text('Some error occurred...', style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),));
             },
           ),
         ),
@@ -54,7 +59,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          getIt<ScannerBloc>()..add(const ScannerEvent.getAllBarcodes()),
+          getIt<BarcodeListBloc>()..add(const BarcodeListEvent.getBarcodes()),
       child: this,
     );
   }
