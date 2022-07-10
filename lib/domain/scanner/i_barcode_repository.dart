@@ -3,7 +3,7 @@ import 'package:barcode_scanner_app/domain/scanner/barcode_failure.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IBarcodeRepository {
-  Either<BarcodeFailure, Unit> deleteBarcode(Barcode barcode);
-  Either<BarcodeFailure, Unit> putBarcode(Barcode barcode);
-  Either<BarcodeFailure, List<Barcode>> getAllBarcodes();
+  Future<Either<BarcodeFailure, Unit>> deleteBarcode(Barcode barcode);
+  Future<Either<BarcodeFailure, Unit>> putBarcode(Barcode barcode);
+  Future<Either<BarcodeFailure, List<Barcode>>> getAllBarcodes();
 }

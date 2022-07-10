@@ -16,11 +16,11 @@ class BarcodeActorBloc extends Bloc<BarcodeActorEvent, BarcodeActorState> {
   final Uuid uuid = const Uuid();
 
   BarcodeActorBloc(this._barcodeRepository) : super(const _Initial()) {
-    on<_SavePressed>((event, emit) {
+    on<_SavePressed>((event, emit) async {
       emit(const BarcodeActorState.saveInProgress());
       final barcode =
           Barcode(id: uuid.v4(), code: event.code, scannedAt: DateTime.now());
-      final failureOrSuccess = _barcodeRepository.putBarcode(barcode);
+      final failureOrSuccess = await _barcodeRepository.putBarcode(barcode);
       emit(failureOrSuccess.fold(
         (failure) => const BarcodeActorState.saveFailure(),
         (success) {
@@ -29,9 +29,9 @@ class BarcodeActorBloc extends Bloc<BarcodeActorEvent, BarcodeActorState> {
         }
       ));
     });
-    on<_DeletePressed>((event, emit) {
+    on<_DeletePressed>((event, emit) async {
       emit(const BarcodeActorState.deleteInProgress());
-      final failureOrSuccess = _barcodeRepository.deleteBarcode(event.barcode);
+      final failureOrSuccess = await _barcodeRepository.deleteBarcode(event.barcode);
       emit(failureOrSuccess.fold(
         (failure) => const BarcodeActorState.saveFailure(),
         (success) {

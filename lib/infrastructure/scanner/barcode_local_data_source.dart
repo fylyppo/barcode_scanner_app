@@ -5,9 +5,9 @@ import '../../domain/scanner/barcode_failure.dart';
 import 'package:hive/hive.dart';
 
 abstract class BarcodeLocalDataSource {
-  Either<BarcodeFailure, List<BarcodeDto>> getAllBarcodes();
-  Either<BarcodeFailure, Unit> deleteBarcode(BarcodeDto barcode);
-  Either<BarcodeFailure, Unit> putBarcode(BarcodeDto barcode);
+  Future<Either<BarcodeFailure, List<BarcodeDto>>> getAllBarcodes();
+  Future<Either<BarcodeFailure, Unit>> deleteBarcode(BarcodeDto barcode);
+  Future<Either<BarcodeFailure, Unit>> putBarcode(BarcodeDto barcode);
 }
 
 @LazySingleton(as: BarcodeLocalDataSource)
@@ -16,7 +16,7 @@ class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   BarcodeLocalDataSourceImpl({required this.box});
 
   @override
-  Either<BarcodeFailure, List<BarcodeDto>> getAllBarcodes() {
+  Future<Either<BarcodeFailure, List<BarcodeDto>>> getAllBarcodes() async {
     try {
       final List<BarcodeDto> barcodeDtoList = box.values.toList();
       return Right(barcodeDtoList);
@@ -26,7 +26,7 @@ class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   }
 
   @override
-  Either<BarcodeFailure, Unit> deleteBarcode(BarcodeDto barcode) {
+  Future<Either<BarcodeFailure, Unit>> deleteBarcode(BarcodeDto barcode) async {
     try {
       box.delete(barcode.id);
       return const Right(unit);
@@ -36,7 +36,7 @@ class BarcodeLocalDataSourceImpl implements BarcodeLocalDataSource {
   }
 
   @override
-  Either<BarcodeFailure, Unit> putBarcode(BarcodeDto barcode) {
+  Future<Either<BarcodeFailure, Unit>> putBarcode(BarcodeDto barcode) async {
     try {
       box.put(
           barcode.id, barcode);

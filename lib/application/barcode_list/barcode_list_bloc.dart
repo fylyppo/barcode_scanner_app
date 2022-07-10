@@ -16,9 +16,9 @@ class BarcodeListBloc extends Bloc<BarcodeListEvent, BarcodeListState> {
   final Uuid uuid = const Uuid();
 
   BarcodeListBloc(this._barcodeRepository) : super(const _Initial()) {
-    on<_GetBarcodes>((event, emit) {
+    on<_GetBarcodes>((event, emit) async {
       emit(const BarcodeListState.loadInProgress());
-      final failureOrSuccess = _barcodeRepository.getAllBarcodes();
+      final failureOrSuccess = await _barcodeRepository.getAllBarcodes();
       emit(failureOrSuccess.fold((failure) => BarcodeListState.loadFailure(failure),
           (barcodes) => BarcodeListState.loadSuccess(barcodes)));
     });

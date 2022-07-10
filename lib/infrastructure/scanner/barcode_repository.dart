@@ -12,21 +12,20 @@ class BarcodeRepository implements IBarcodeRepository {
   BarcodeRepository(this._barcodeLocalDataSource);
 
   @override
-  Either<BarcodeFailure, Unit> putBarcode(Barcode barcode) {
-      final failureOrSuccess = _barcodeLocalDataSource.putBarcode(BarcodeDto.fromDomain(barcode));
+  Future<Either<BarcodeFailure, Unit>> putBarcode(Barcode barcode) async {
+      final failureOrSuccess = await _barcodeLocalDataSource.putBarcode(BarcodeDto.fromDomain(barcode));
       return failureOrSuccess.fold((failure) => Left(failure), (success) => const Right(unit));
   }
 
   @override
-  Either<BarcodeFailure, Unit> deleteBarcode(Barcode barcode) {
-      final failureOrSuccess = _barcodeLocalDataSource.deleteBarcode(BarcodeDto.fromDomain(barcode));
+  Future<Either<BarcodeFailure, Unit>> deleteBarcode(Barcode barcode) async {
+      final failureOrSuccess = await _barcodeLocalDataSource.deleteBarcode(BarcodeDto.fromDomain(barcode));
       return failureOrSuccess.fold((failure) => Left(failure), (success) => const Right(unit));    
   }
 
   @override
-  Either<BarcodeFailure, List<Barcode>> getAllBarcodes() {
-      final failureOrSuccess = _barcodeLocalDataSource.getAllBarcodes();
+  Future<Either<BarcodeFailure, List<Barcode>>> getAllBarcodes() async {
+      final failureOrSuccess = await _barcodeLocalDataSource.getAllBarcodes();
       return failureOrSuccess.fold((failure) => Left(failure), (success) => Right(success.map((e) => e.toDomain()).toList()));
   }
-
 }
