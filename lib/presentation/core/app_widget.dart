@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:barcode_scanner_app/application/theme/theme_cubit.dart';
+import 'package:barcode_scanner_app/presentation/core/theme/app_themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../injection.dart';
 import '../routes/app_router.gr.dart';
 
@@ -9,27 +12,21 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appRouter = getIt<AppRouter>();
-    return MaterialApp.router(
-      title: 'Barcode Scanner',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: Colors.orange,
-          primaryColor: Colors.white,
-          textButtonTheme: TextButtonThemeData(
-              style: TextButton.styleFrom(
-            primary: Colors.white,
-          )),
-          appBarTheme: const AppBarTheme(
-              iconTheme: IconThemeData(color: Colors.white),
-              titleTextStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
-          textTheme: Theme.of(context).textTheme.apply(
-                bodyColor: Colors.white,
-              )),
-      routeInformationParser: appRouter.defaultRouteParser(),
-      routerDelegate: AutoRouterDelegate(appRouter),
+    return BlocProvider(
+      create: (_) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            title: 'Barcode Scanner',
+            debugShowCheckedModeBanner: false,
+            theme: state.map(
+                light: (_) => appThemeData[AppTheme.light],
+                dark: (_) => appThemeData[AppTheme.dark]),
+            routeInformationParser: appRouter.defaultRouteParser(),
+            routerDelegate: AutoRouterDelegate(appRouter),
+          );
+        },
+      ),
     );
   }
 }

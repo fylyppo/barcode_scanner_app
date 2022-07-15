@@ -23,7 +23,6 @@ class ScannerErrorWidget extends StatelessWidget {
               const Text(
                 'Error occured',
                 style: TextStyle(
-                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -32,7 +31,6 @@ class ScannerErrorWidget extends StatelessWidget {
               ),
               Text(
                 "Description: $error",
-                style: const TextStyle(color: Colors.white),
               ),
               const Spacer(),
               SizedBox(

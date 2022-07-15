@@ -46,7 +46,6 @@ class ScannerPage extends StatelessWidget {
                   child: Text(
                     'Point your camera at a barcode',
                     style: TextStyle(
-                        color: Colors.white,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),

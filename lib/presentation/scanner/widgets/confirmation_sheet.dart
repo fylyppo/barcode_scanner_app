@@ -26,10 +26,10 @@ class ConfirmationSheet extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.white,
-            title: const Text('Scanned code:',
+            backgroundColor: Theme.of(context).primaryColor,
+            title: Text('Scanned code',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Theme.of(context).primaryColorLight,
                 )),
             actions: [
               IconButton(
@@ -37,9 +37,9 @@ class ConfirmationSheet extends StatelessWidget {
                   qrKey.currentState!.restart();
                   getIt<AppRouter>().pop();
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.keyboard_arrow_down,
-                  color: Colors.black,
+                  color: Theme.of(context).primaryColorLight,
                 ),
                 iconSize: 40,
               )
@@ -64,14 +64,12 @@ class ConfirmationSheet extends StatelessWidget {
                         const Text(
                           'Want to save this code?',
                           style: TextStyle(
-                            color: Colors.white,
                             fontSize: 20,
                           ),
                         ),
                         Text(
                           code,
                           style: const TextStyle(
-                              color: Colors.white,
                               fontSize: 28,
                               fontWeight: FontWeight.bold),
                         ),
@@ -94,14 +92,12 @@ class ConfirmationSheet extends StatelessWidget {
                         children: const [
                           Icon(
                             Icons.check,
-                            color: Colors.white,
                             shadows: [
                               BoxShadow(color: Colors.black38, blurRadius: 10)
                             ],
                           ),
                           Text(
                             'Yes, save in memory',
-                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
@@ -122,11 +118,9 @@ class ConfirmationSheet extends StatelessWidget {
                         children: const [
                           Icon(
                             Icons.qr_code_scanner,
-                            color: Colors.white,
                           ),
                           Text(
                             'No, scan again',
-                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),

@@ -83,7 +83,6 @@ class BarcodeItem extends StatelessWidget {
                         barcodeListBloc: getIt<BarcodeListBloc>())),
                 icon: const Icon(
                   Icons.delete,
-                  color: Colors.white,
                 ))
           ],
         ),

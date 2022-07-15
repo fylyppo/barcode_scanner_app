@@ -5,17 +5,31 @@ import 'package:barcode_scanner_app/presentation/home/widgets/barcode_item.dart'
 import 'package:barcode_scanner_app/presentation/home/widgets/fab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../application/barcode_list/barcode_list_bloc.dart';
+import '../../application/theme/theme_cubit.dart';
 
 class HomePage extends StatelessWidget implements AutoRouteWrapper {
   const HomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Barcode Scanner'),
+          actions: [
+            BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return Switch(
+                    value: state == const ThemeState.light(),
+                    onChanged: (newValue) {
+                      if (newValue == true) {
+                        context.read<ThemeCubit>().setLight();
+                      } else {
+                        context.read<ThemeCubit>().setDark();
+                      }
+                    });
+              },
+            ),
+          ],
         ),
         body: Center(
           child: BlocConsumer<BarcodeListBloc, BarcodeListState>(
@@ -46,8 +60,11 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                           color: Colors.black, fontWeight: FontWeight.bold),
                     );
                   },
-                  loadFailure: (_) => const Text('Some error occurred...', style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),));
+                  loadFailure: (_) => const Text(
+                        'Some error occurred...',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ));
             },
           ),
         ),
@@ -57,9 +74,16 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<BarcodeListBloc>()..add(const BarcodeListEvent.getBarcodes()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<BarcodeListBloc>()
+            ..add(const BarcodeListEvent.getBarcodes()),
+        ),
+        // BlocProvider.value(
+        //   value: getIt<ThemeCubit>()
+        // ),
+      ],
       child: this,
     );
   }

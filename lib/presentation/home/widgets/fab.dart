@@ -31,7 +31,6 @@ class FAB extends StatelessWidget {
                   Icon(
                     Icons.qr_code_scanner,
                     size: 35,
-                    color: Colors.white,
                   ),
                 ]),
           ),
