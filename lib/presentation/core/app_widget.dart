@@ -3,7 +3,6 @@ import 'package:barcode_scanner_app/application/theme/theme_cubit.dart';
 import 'package:barcode_scanner_app/presentation/core/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../injection.dart';
 import '../routes/app_router.gr.dart';
 
 class AppWidget extends StatelessWidget {
@@ -11,7 +10,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = getIt<AppRouter>();
+    final appRouter = AppRouter();
     return BlocProvider(
       create: (_) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeState>(

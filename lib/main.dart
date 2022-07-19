@@ -7,7 +7,6 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'injection.dart';
-import 'presentation/routes/app_router.gr.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +16,6 @@ void main() async {
   );
   await Hive.initFlutter('hive');
   Hive.registerAdapter(BarcodeDtoAdapter());
-  getIt.registerSingleton<AppRouter>(AppRouter());
   await configureInjection(Environment.prod);
   HydratedBlocOverrides.runZoned(
     () => runApp(const AppWidget()),

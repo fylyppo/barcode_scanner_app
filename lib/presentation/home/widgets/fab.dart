@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../../../injection.dart';
 import '../../routes/app_router.gr.dart';
 
 class FAB extends StatelessWidget {
@@ -8,7 +8,7 @@ class FAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-          onTap: () => getIt<AppRouter>().push(ScannerRoute()),
+          onTap: () => context.router.push(ScannerRoute()),
           child: Container(
             height: 60,
             width: 250,

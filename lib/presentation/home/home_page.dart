@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                           });
                     }
                     return const Text(
-                      'There is no barcodes',
+                      'There are no barcodes',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     );
@@ -80,9 +80,6 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
           create: (context) => getIt<BarcodeListBloc>()
             ..add(const BarcodeListEvent.getBarcodes()),
         ),
-        // BlocProvider.value(
-        //   value: getIt<ThemeCubit>()
-        // ),
       ],
       child: this,
     );
