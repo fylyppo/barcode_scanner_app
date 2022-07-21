@@ -1,7 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
-import '../../../injection.dart';
-import '../../routes/app_router.gr.dart';
 
 class ScannerErrorWidget extends StatelessWidget {
   final String error;
@@ -36,7 +34,7 @@ class ScannerErrorWidget extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
-                  onPressed: () => getIt<AppRouter>().pop(),
+                  onPressed: () => context.router.pop(),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [

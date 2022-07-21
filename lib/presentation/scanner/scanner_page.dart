@@ -1,5 +1,6 @@
 import 'package:barcode_scanner_app/presentation/scanner/widgets/confirmation_sheet.dart';
 import 'package:barcode_scanner_app/presentation/scanner/widgets/scanner_error_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 
@@ -12,7 +13,7 @@ class ScannerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scan a barcode!'),
+        title: Text("${'Scan a barcode'.tr()}!"),
       ),
       body: QRBarScannerCamera(
         key: qrKey,
@@ -42,10 +43,10 @@ class ScannerPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.black26,
                     borderRadius: BorderRadius.circular(15)),
-                child: const Center(
+                child: Center(
                   child: Text(
-                    'Point your camera at a barcode',
-                    style: TextStyle(
+                    'Point your camera at a barcode'.tr(),
+                    style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),

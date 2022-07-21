@@ -3,10 +3,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:barcode_scanner_app/injection.dart';
 import 'package:barcode_scanner_app/presentation/home/widgets/barcode_item.dart';
 import 'package:barcode_scanner_app/presentation/home/widgets/fab.dart';
+import 'package:barcode_scanner_app/presentation/routes/app_router.gr.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/barcode_list/barcode_list_bloc.dart';
-import '../../application/theme/theme_cubit.dart';
 
 class HomePage extends StatelessWidget implements AutoRouteWrapper {
   const HomePage({Key? key}) : super(key: key);
@@ -14,21 +15,11 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Barcode Scanner'),
+          title: Text('Barcode Scanner'.tr()),
           actions: [
-            BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return Switch(
-                    value: state == const ThemeState.light(),
-                    onChanged: (newValue) {
-                      if (newValue == true) {
-                        context.read<ThemeCubit>().setLight();
-                      } else {
-                        context.read<ThemeCubit>().setDark();
-                      }
-                    });
-              },
-            ),
+            IconButton(onPressed: () {
+              context.router.push(const SettingsRoute());
+            }, icon: const Icon(Icons.settings))
           ],
         ),
         body: Center(
@@ -54,9 +45,9 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                             return BarcodeItem(barcode);
                           });
                     }
-                    return const Text(
-                      'There are no barcodes',
-                      style: TextStyle(
+                    return Text(
+                      'There are no barcodes'.tr(),
+                      style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     );
                   },
@@ -76,8 +67,8 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => getIt<BarcodeListBloc>()
+        BlocProvider.value(
+          value: getIt<BarcodeListBloc>()
             ..add(const BarcodeListEvent.getBarcodes()),
         ),
       ],
